@@ -20,12 +20,7 @@ const login = async (req,res) =>{
     const token = user.createJWT()
     res.status(StatusCodes.OK).json({user:{name:user.name} , token})
 }
-const deleteAll = async (req,res) =>{
-    const user = await User.deleteMany({})
-    res.status(StatusCodes.CREATED).json(user)
-}
 module.exports = {
     register, 
     login,
-    deleteAll,
 }
