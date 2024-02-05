@@ -8,8 +8,8 @@ const auth = async (req, res, next) => {
   }
   const token = authHeader.split(" ")[1];
   try {
-    const testUser = payload.userId === "65c12a51b8b2342dbcef4a78";
     const payload = jwt.verify(token, process.env.JWT_KEY);
+    const testUser = payload.userId === "65c12a51b8b2342dbcef4a78";
     req.user = { userId: payload.userId, testUser };
     next();
   } catch (error) {
