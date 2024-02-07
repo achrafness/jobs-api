@@ -1,6 +1,6 @@
 # Job API
 
-This project is a Job API built using Node.js and Express.js, providing endpoints for user registration, login, and job management. It incorporates security measures such as helmet, cors, xss-clean, and rate limiting. Additionally, Swagger is utilized for API documentation.
+This project is a Job API built using Node.js and Express.js, providing endpoints for user registration, login, updateUser, and job management. It incorporates security measures such as helmet and xss-clean.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ Follow the steps below to set up and run the project:
 
     ```env
     MONGO_URI=your_mongodb_connection_string
-    JWT_KEY = your_jwt_secret
+    JWT_KEY=your_jwt_secret
     JWT_LIFETIME=your-lifetime-jwt
     ```
 
@@ -32,31 +32,35 @@ The project is organized into the following directories:
 - **controllers:** Contains the logic for handling HTTP requests.
 - **db:** Manages the database connection and schema.
 - **errors:** Handles custom error classes.
-- **middleware:** Includes security middleware functions (helmet, cors, xss-clean) and rate limiting.
+- **middleware:** Includes security middleware functions (helmet, cors, xss-clean), and rate limiting.
 - **models:** Defines the data models for users and jobs.
 - **routes:** Defines the API routes.
-- **swagger:** Utilizes Swagger for API documentation.
 
 ## Security Measures
 
 - **helmet:** Helps secure the application by setting various HTTP headers.
-- **cors:** Enables Cross-Origin Resource Sharing.
 - **xss-clean:** Sanitizes user input to prevent Cross-Site Scripting (XSS) attacks.
-- **rate limiting:** Implements rate limiting to protect against brute force and DDoS attacks.
 
 ## API Endpoints
 
+### Auth
+
 - **POST /register:** Register a new user.
 - **POST /login:** Log in as an existing user.
+- **PATCH /updateUser:** Update user name or city... .
+
+### Jobs
+
 - **GET /jobs:** Get all jobs.
 - **GET /jobs/:id:** Get a specific job by ID.
 - **POST /jobs:** Create a new job.
 - **PUT /jobs/:id:** Update a job by ID.
 - **DELETE /jobs/:id:** Delete a job by ID.
+- **GET /jobs/stats:** Get stats for jobs.
 
-## API Documentation (Swagger)
+## Link
 
-Access Swagger documentation at [http://localhost:your_port/api-docs](http://localhost:your_port/api-docs).
+You can see this project [here](https://jobs-api-vw4r.onrender.com/).
 
 ## Contributing
 
@@ -64,5 +68,4 @@ Feel free to contribute by opening issues or submitting pull requests. Make sure
 
 ## License
 
-This project is from jhon smilga
-
+This project is from John Smilga.
